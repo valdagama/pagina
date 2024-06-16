@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadrastro</title>
+    <link rel="shortcut icon" href="vanesa01.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href=".css">
+    <style>
+        body{
+            background-image: url('vanesa01.jpeg') ;
+        }
+        .info{
+            float: left;
+            text-align:left;
+        }
+        .form-group{
+            margin-bottom: 2px;
+        }
+        .form-group input{
+            width: 25%;
+            padding: 1px;
+            box-sizing: border-box;
+            margin-bottom: 2px;
+        }
+        .form-group label{
+            display:flex;
+        }
+        .conteaner{
+            max-width: 1200px;
+            padding: 20px;
+            justify-content: space-around;
+
+        }
+        #vanesa{
+            text-align: center;
+            color:rgb(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+  
+    <div id="vanesa" >
+    <h1>VANESSA'S </h1>
+    <h2>Recruitment and Selection</h2>
+     </div>
+    <div class="container" >
+    <fieldset id="cadrastro" >
+        <legend>Cadrastro</legend>
+    <form name="form1" action="gravar.jsp" method="post" i>
+        <div class="form-group" >
+        <label for="txtNome">Nome:</label>
+        <input type="text" id="txtNome" name="txtNome">
+        <span id="erroNome"></span>
+        </div>
+        <br>
+        <div class="form-group" >
+        <label for="txtData">Data:</label>
+        <input type="date" id="txtData" name="txt">
+        <span id="erroData"></span>
+         </div>
+        <br>
+
+        <div class="form-group" >
+        <label for="txtHorario">Horario:</label>
+        <input type="time" id="txtHorario" name="txt">
+        <span id="erroHorario"></span>
+        </div>
+        <br>
+ 
+        <div class="form-group" >
+        <label for="txtContato">Contato:</label>
+        <input type="text" id="txtContato" name="txt">
+        <span id="erroContato"></span>
+        </div>
+        <br>
+
+        <div class="form-group" >
+        <label for="txtEmail">E-mail</label>
+        <input type="text" id="txtEmail" name="txtEmail">
+        <span id="erroEmail"></span>
+        </div>
+        <br>
+
+        <div class="form-group" >
+        <label for="txtNome-Entrevistador"> Entrevistador:</label>
+        <input type="text" id="txtNome-Entrevistador" name="txt">
+        <span id="erroNome-Entrevistador"></span>
+        </div>
+        <br>
+        <input type="button"value="salvar" onclick="verificar()">
+    </fieldset>
+</form>
+</div>
+<script>
+    
+    function verificar(){
+        limpar() ;
+        var enviar = true ;
+
+        var n = document.getElementById("txtNome").value ;
+
+        if( n.length == 0 ) {
+            enviar = false ;
+            document.querySelector("#erroNome").textContent= "preencher cosrretamente o campo nome" ;
+
+            document.getElementById("txtNome").style.backgroundColor = "lightyellow" ;
+        }
+
+        var n = document.getElementById("txtData").value ;
+        if( n.length == 0 ){
+            enviar = false ;
+            document.querySelector("#erroData").textContent = "preencher cosrretamente o campo data" ;
+             
+            document.getElementById("txtData").style.backgroundColor ="lightyellow" ;
+        }
+
+        var n = document.getElementById("txtHorario").value ;
+        if( n.length == 0 ){
+            enviar = false ;
+            document.querySelector("#erroHorario").textContent = "preencher cosrretamente o campo horario" ;
+             
+            document.getElementById("txtHorario").style.backgroundColor ="lightyellow" ;
+        }
+
+        var n = document.getElementById("txtContato").value ;
+        if( n.length == 0 ){
+            enviar = false ;
+            document.querySelector("#erroContato").textContent = "preencha corretamente o campo do contato" ;
+             
+            document.getElementById("txtContato").style.backgroundColor ="lightyellow" ;
+        }
+
+        var e = document.getElementById("txtEmail").value ;
+
+        if( e.indexOf("@") < 0 ){
+            enviar = false ;
+            document.querySelector("#erroEmail").textContent = "preencha corretamente o campo e-mail" ;
+
+            document.getElementById("txtEmail").style.backgroundColor = "lightyellow" ;
+        }
+
+        var n = document.getElementById("txtNome-Entrevistador").value ;
+        if(n.length == 0 ){
+            enviar = false ;
+            document.querySelector("#erroNome-Entrevistador").textContent = "preencha corretamente o campo do entrevistador" ;
+             
+            document.getElementById("txtNome-Entrevistador").style.backgroundColor ="lightyellow" ;
+        }
+
+        if ( enviar ){
+            document.form1.submit() ;
+        } 
+
+        function limpar(){
+        document.querySelector("#erroNome").textContent = "" ;
+        document.querySelector("#erroData").textContent = 
+        "" ;
+        document.querySelector("#erroHorario").textContent = "" ;
+        document.querySelector("#erroContato").textContent = "" ;
+        document.querySelector("#erroEmail").
+        textContent = "" ;
+
+        document.querySelector("#erroNome-Entrevistador").textContent = "" ;
+
+        document.getElementById("txtNome").style.backgroundColor = "white" ;
+
+        document.getElementById("txtData").style.backgroundColor = "white" ;
+
+        document.getElementById("txtHorario").style.backgroundColor = "white" ;
+
+        document.getElementById("txtContato").style.backgroundColor = "white" ;
+
+        document.getElementById("txtEmail").style.backgroundColor = "white" ;
+
+        document.getElementById("txtNome-Entrevistador").style.backgroundColor = "white" ;
+
+    }
+        
+    }
+</script> 
+<br> <br> <br>
+<footer>
+    <p>Rua, Força Pública,89- <a href="https://www.google.com/maps/place/Eniac/@-23.4723547,-46.532996,17.5z/data=!4m6!3m5!1s0x94cef55eb2540001:0xdf80bffdcd8b95f!8m2!3d-23.4728015!4d-46.5308076!16s%2Fg%2F122tpv79?entry=ttu" target="_blank" >Centro</a> </p>
+</footer>
+</body>
+</html>
